@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+ void main(){
+    
+    float pi, area;
+    int raio;
+    
+    scanf("%d", &raio);
+    
+    pi = 3.14;
+    area = pi*(raio*raio);
+    
+    printf("A area = %.2f \n", area);
+    
+
+    return;
+}
