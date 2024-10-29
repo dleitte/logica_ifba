@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+ void main(){
+    
+    float grauCelsio, grauFahrenheit;
+    
+    printf("Insira o valor do grau em celsio: \n");
+    scanf("%f", &grauCelsio);
+    
+    grauFahrenheit = grauCelsio*1.8+32;
+    
+    printf("O valor em Fahrenheit = %.2f", grauFahrenheit);
+    
+
+    return;
+}
