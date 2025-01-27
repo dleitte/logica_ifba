@@ -1,0 +1,220 @@
+COLA PROVA II LÓGICA
+
+PASSO A PASSO REPETIÇÃO
+fases da repetição: loop, laço, iteração
+1- inicialização (variavel de controle = valor modificado para a repetição), de valor da variavel de controle
+2- terminação (invariante) verifica se o invariante é vallido
+3- iteração (altera o valor da variavel de controle)
+4- corpo (oq eu quero que repita)
+
+REPETIÇÃO COM TERMINAÇÃO NO INICIO
+ int valor = 0, qtdeImpressoes = 0;
+    
+    while(qtdeImpressoes < 10){
+    
+    printf("Valor: %d\n", valor);
+    valor+=2;
+    qtdeImpressoes ++;
+    }
+
+REPETIÇÃO COM TERMINAÇÃO NO FINAL
+do{
+    printf("Valor: %d\n", valor);
+    valor+=2;
+    qtdeImpressoes ++;
+    } while (qtdeImpressoes < 10);
+    
+REPETIÇÃO COM FASE EXPLICITA
+for(inicialização, terminação, iteração) 
+    //corpo;
+    
+    for(qtdeImpressoes = 0; qtdeImpressoes <10;
+qtdeImpressoes ++){
+        printf("Valor: %d\n", valor);
+        valor+=2;
+    }
+
+NÚMERO PRIMO
+
+#include <stdio.h>
+
+int main()
+{
+    int divisor = 1, num = 0, primo = 0;
+    
+    printf("Insira um numero\n");
+    scanf("%d", &num);
+    
+    while(divisor<=num){
+        
+        if(num%divisor == 0){
+        primo++;}
+        divisor ++;
+        
+    }
+    
+    if(primo==2){
+        printf("É PRIMO");
+    }
+    else{
+        printf("NAO É PRIMO");
+    }
+    return 0;
+}
+
+POSIÇÃO VETOR 
+
+#include <stdio.h>
+
+#define TAM 8
+
+int main(){
+    
+    int vetor[TAM]={5, 7, -2, -9, 0, 4, -2, -1};
+    int elemento = 4;
+    int posicao = -1;
+    int i;
+
+    for ( i = 0; i < TAM; i++) {
+        if (vetor[i] == elemento) {
+            posicao = i;
+        }
+    }
+    
+    if (posicao != -1){
+        printf("%d\n", posicao);
+    } else {
+        printf("-1\n");
+    }
+
+    return 0;
+}
+
+SELECT SORT
+
+#include <stdio.h>
+
+#define TAM 8
+
+int main() {
+    int vetor[TAM];
+    int i, j, menorValor, novosValores;
+
+    printf("Digite os %d elementos do vetor:\n", TAM);
+    for (i = 0; i < TAM; i++) {
+    printf("Elemento %d: ", i + 1);
+    scanf("%d", &vetor[i]);
+        
+    }
+
+    for (i = 0; i < TAM - 1; i++) {
+        menorValor = i;
+        for (j = i + 1; j < TAM; j++) {
+            if (vetor[j] < vetor[menorValor]) {
+                menorValor = j;
+            }
+        }
+        
+        novosValores = vetor[i];
+        vetor[i] = vetor[menorValor];
+        vetor[menorValor] = novosValores;
+    }
+
+    printf("Vetor ordenado: ");
+    for (i = 0; i < TAM; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+BUBBLE SORT
+
+#include <stdio.h>
+
+#define TAM 8
+
+int main() {
+    int vetor[TAM];
+    int i, j, novosValores;
+
+    printf("Digite os %d elementos do vetor:\n", TAM);
+    for (i = 0; i < TAM; i++) {
+        printf("Elemento %d: ", i + 1);
+        scanf("%d", &vetor[i]);
+    }
+
+    for (i = 0; i < TAM - 1; i++) {  
+        for (j = 0; j < TAM - 1 - i; j++) {  
+            if (vetor[j] > vetor[j + 1]) {
+                novosValores = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = novosValores;
+            }
+        }
+    }
+
+    printf("Vetor ordenado: ");
+    for (i = 0; i < TAM; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+BUSCA BINARIA
+
+#include <stdio.h>
+
+#define TAM 8 
+
+int main() {
+    int chave, esquerda, direita, meio, resultado = -1, i, j, novoValor;
+    
+    int vetor[TAM];
+
+    printf("Digite os elementos do vetor:\n");
+    for (i = 0; i < TAM; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    for (i = 0; i < TAM - 1; i++) {
+        for (j = 0; j < TAM - 1 - i; j++) {
+            if (vetor[j] > vetor[j + 1]) {
+                novoValor = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = novoValor;
+            }
+        }
+    }
+
+    printf("Digite o número a ser buscado: ");
+    scanf("%d", &chave);
+    
+    esquerda = 0;
+    direita = TAM - 1;
+
+    while (esquerda <= direita) {
+        meio = esquerda + (direita - esquerda) / 2;
+
+        if (vetor[meio] == chave) {
+            resultado = meio; 
+            break;
+        } else if (vetor[meio] < chave) {
+            esquerda = meio + 1; 
+        } else {
+            direita = meio - 1; 
+        }
+    }
+
+    if (resultado != -1) {
+        printf("Elemento %d encontrado na posição %d.\n", chave, resultado);
+    } else {
+        printf("Elemento %d não encontrado.\n", chave);
+    }
+
+    return 0;
+}
+
