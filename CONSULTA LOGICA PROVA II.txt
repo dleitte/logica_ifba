@@ -218,3 +218,68 @@ int main() {
     return 0;
 }
 
+4 OPERAÇÕES COM VETOR
+
+#include <stdio.h>
+
+#define TAMANHO_VETOR 5
+
+int main() {
+    int v1[TAMANHO_VETOR] = {1, 2, 3, 4, 5};
+    int v2[TAMANHO_VETOR] = {5, 4, 3, 2, 1};
+    int soma[TAMANHO_VETOR], subtracao[TAMANHO_VETOR], multiplicacao[TAMANHO_VETOR];
+    float divisao[TAMANHO_VETOR];
+
+    // Soma
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        soma[i] = v1[i] + v2[i];
+    }
+
+    // Subtração
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        subtracao[i] = v1[i] - v2[i];
+    }
+
+    // Multiplicação
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        multiplicacao[i] = v1[i] * v2[i];
+    }
+
+    // Divisão
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        if (v2[i] != 0) {
+            divisao[i] = (float)v1[i] / v2[i];
+        } else {
+            divisao[i] = 0;  // Evita divisão por zero
+        }
+    }
+
+    // Exibindo os resultados
+    printf("Soma: ");
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        printf("%d ", soma[i]);
+    }
+    printf("\n");
+
+    printf("Subtração: ");
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        printf("%d ", subtracao[i]);
+    }
+    printf("\n");
+
+    printf("Multiplicação: ");
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        printf("%d ", multiplicacao[i]);
+    }
+    printf("\n");
+
+    printf("Divisão: ");
+    for (int i = 0; i < TAMANHO_VETOR; i++) {
+        printf("%.2f ", divisao[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
